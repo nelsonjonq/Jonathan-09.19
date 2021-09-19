@@ -15,10 +15,10 @@ interface OrderRowProps {
 
 const OrderRow = (props: OrderRowProps): React.ReactElement => {
   return (
-    <View style={styles.rowContainer}>
+    <View style={styles.container}>
       <View
         style={[
-          styles.backgroundColor,
+          styles.rowColorContainer,
           {
             width: `${props.totalPercentage}%`,
             backgroundColor: props.backgroundColor,
@@ -26,7 +26,7 @@ const OrderRow = (props: OrderRowProps): React.ReactElement => {
         ]}
       />
       <View style={styles.textContainer}>
-        <Text style={[styles.unitPriceText, { color: props.priceTextColor }]}>
+        <Text style={[styles.priceText, { color: props.priceTextColor }]}>
           {props.priceText}
         </Text>
         <Text style={styles.primaryText}>{props.sizeText}</Text>
@@ -37,33 +37,33 @@ const OrderRow = (props: OrderRowProps): React.ReactElement => {
 };
 
 const styles = StyleSheet.create({
-  orderChartContainer: {
-    flex: 1,
-    width: "100%",
+  container: {
+    flexDirection: "row",
+    padding: 3,
   },
-  unitPriceText: {
-    fontWeight: "bold",
-    textAlign: "right",
-    minWidth: 75,
-  },
-  backgroundColor: {
+  rowColorContainer: {
     position: "absolute",
     height: 24,
   },
-  primaryText: {
-    color: colors.primaryText,
-    fontWeight: "bold",
-    textAlign: "right",
-    minWidth: 75,
+  orderChartContainer: {
+    flex: 1,
+    width: "100%",
   },
   textContainer: {
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-evenly",
   },
-  rowContainer: {
-    flexDirection: "row",
-    padding: 3,
+  priceText: {
+    fontWeight: "bold",
+    textAlign: "right",
+    minWidth: 75,
+  },
+  primaryText: {
+    color: colors.primaryText,
+    fontWeight: "bold",
+    textAlign: "right",
+    minWidth: 75,
   },
 });
 

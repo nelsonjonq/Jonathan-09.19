@@ -3,7 +3,7 @@ import React from "react";
 import colors from "../../../constants/colors";
 import OrderRow from "../order-row";
 
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 
 interface OrderBidChartProps {
   data: number[][];
@@ -13,7 +13,7 @@ interface OrderBidChartProps {
 const OrderBidChart = (props: OrderBidChartProps): React.ReactElement => {
   let currTotal = 0;
   return (
-    <View style={styles.orderChartContainer}>
+    <View>
       {props.data.map((order: number[]) => {
         currTotal += order[1];
         const priceText = order[0].toLocaleString("en-US", {
@@ -36,9 +36,5 @@ const OrderBidChart = (props: OrderBidChartProps): React.ReactElement => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  orderChartContainer: {},
-});
 
 export default OrderBidChart;

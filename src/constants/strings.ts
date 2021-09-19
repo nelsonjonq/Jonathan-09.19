@@ -4,10 +4,10 @@ const strings = {
   priceHeader: "Price",
   sizeHeader: "Size",
   spreadHeader: "Spread",
-  totalHeader: "Total",
-  toggleFeed: "Toggle Feed",
   reconnect: "Reconnect",
   reconnectToApp: "App returned into focus!",
+  totalHeader: "Total",
+  toggleFeed: "Toggle Feed",
 };
 
 export default strings;

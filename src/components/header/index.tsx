@@ -27,6 +27,14 @@ const OrderBookHeader = (): React.ReactElement => {
 };
 
 const styles = StyleSheet.create({
+  categoryHeaderText: {
+    color: colors.grey,
+    fontWeight: "bold",
+  },
+  categoryHeaderContainer: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+  },
   container: {
     flex: 1,
   },
@@ -34,19 +42,11 @@ const styles = StyleSheet.create({
     color: colors.primaryText,
     fontWeight: "bold",
   },
-  categoryHeaderText: {
-    color: colors.grey,
-    fontWeight: "bold",
-  },
   textContainer: {
     borderBottomWidth: 1,
     borderBottomColor: colors.grey,
     padding: 10,
     paddingLeft: 15,
-  },
-  categoryHeaderContainer: {
-    flexDirection: "row",
-    justifyContent: "space-evenly",
   },
 });
 

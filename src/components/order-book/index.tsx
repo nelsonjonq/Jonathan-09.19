@@ -11,7 +11,7 @@ import SpreadRow from "../spread";
 import ToggleProductButton from "../buttons/toggle-product-button";
 import WebSocketConnection from "../../websocket";
 
-import { ScrollView, StyleSheet, Text, SafeAreaView } from "react-native";
+import { ScrollView, StyleSheet, SafeAreaView } from "react-native";
 import { useSelector } from "react-redux";
 import {
   calculateSpreadInUnits,

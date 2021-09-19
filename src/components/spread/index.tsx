@@ -16,18 +16,18 @@ const SpreadRow = (props: SpreadRowProps): React.ReactElement => {
   const spreadText = `${strings.spreadHeader} ${units} (${percentage}%)`;
 
   return (
-    <View style={styles.spreadTextContainer}>
-      <Text style={styles.spreadText}>{spreadText}</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>{spreadText}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  spreadText: {
+  text: {
     color: colors.grey,
     fontWeight: "bold",
   },
-  spreadTextContainer: {
+  container: {
     borderBottomColor: colors.grey,
     padding: 10,
     paddingLeft: 15,

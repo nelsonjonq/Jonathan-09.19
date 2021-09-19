@@ -3,7 +3,7 @@ import React from "react";
 import colors from "../../../constants/colors";
 import OrderRow from "../order-row";
 
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import { sumBy } from "lodash";
 
 interface OrderChartProps {
@@ -18,7 +18,7 @@ const OrderAskChart = (props: OrderChartProps): React.ReactElement => {
   let currTotal = totalSum;
 
   return (
-    <View style={styles.orderChartContainer}>
+    <View>
       {props.data.map((order: number[]) => {
         const total = currTotal;
         currTotal -= order[1];
@@ -42,12 +42,5 @@ const OrderAskChart = (props: OrderChartProps): React.ReactElement => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  orderChartContainer: {
-    flex: 1,
-    width: "100%",
-  },
-});
 
 export default OrderAskChart;

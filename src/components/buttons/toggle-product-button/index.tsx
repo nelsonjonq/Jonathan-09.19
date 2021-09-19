@@ -22,6 +22,12 @@ const ToggleProductButton = (
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 25,
+  },
   button: {
     backgroundColor: colors.toggleButton,
     justifyContent: "center",
@@ -29,12 +35,6 @@ const styles = StyleSheet.create({
     width: 150,
     height: 30,
     borderRadius: 3,
-  },
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 25,
   },
   text: {
     color: colors.primaryText,
