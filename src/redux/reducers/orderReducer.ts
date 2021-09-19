@@ -1,12 +1,17 @@
 import initialState from "../constants/initial-state";
 
-import { RECEIVE_MESSAGE } from "../constants/action-types";
+import {
+  RECEIVE_MESSAGE,
+  UNSUBSCRIBE_FROM_PRODUCT_ID,
+} from "../constants/action-types";
 import { findIndex, remove, orderBy } from "lodash";
 
 const orderReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case RECEIVE_MESSAGE:
       return receiveMessage(state, action);
+    case UNSUBSCRIBE_FROM_PRODUCT_ID:
+      return unsubscribeFromProductId(state, action);
     default:
       return state;
   }
@@ -43,6 +48,20 @@ const mergeSortedArrays = (arr: any, prevArr: any) => {
   );
 
   return prevArr;
+};
+
+const unsubscribeFromProductId = (state: any, action: any) => {
+  const productId = action.productId;
+  return {
+    ...state,
+    productIdToOrderBook: {
+      ...state.productIdToOrderBook,
+      [productId]: {
+        asks: [],
+        bids: [],
+      },
+    },
+  };
 };
 
 const receiveMessage = (state: any, action: any) => {

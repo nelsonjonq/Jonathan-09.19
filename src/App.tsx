@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { StatusBar } from "expo-status-bar";
 
 import OrderBook from "./components/order-book";
-import WebSocketConnection from "./services/websocket";
+import WebSocketConnection from "./websocket";
 
 const websocket = new WebSocketConnection();
 

@@ -1,4 +1,7 @@
-import { receiveMessage } from "../redux/actions/message";
+import {
+  receiveMessage,
+  unsubscribeFromProductId,
+} from "../redux/actions/orders";
 import { store } from "../redux/store";
 
 class WebSocketConnection {
@@ -36,11 +39,16 @@ class WebSocketConnection {
       product_ids: [this.currentProductId],
     };
     this.ws.send(JSON.stringify(message));
+    store.dispatch(unsubscribeFromProductId(this.currentProductId));
   };
 
-  onUpdateProductId = (productId: string) => {
+  onToggleProductId = () => {
     this.unsubscribeFromProductId();
-    this.currentProductId = productId;
+    if (this.currentProductId === "PI_XBTUSD") {
+      this.currentProductId = "PI_ETHUSD";
+    } else {
+      this.currentProductId = "PI_XBTUSD";
+    }
     this.subscribeToProductId();
   };
 }

@@ -4,6 +4,7 @@ const strings = {
   sizeHeader: "Size",
   totalHeader: "Total",
   spreadHeader: "Spread",
+  toggleFeed: "Toggle Feed",
 };
 
 export default strings;

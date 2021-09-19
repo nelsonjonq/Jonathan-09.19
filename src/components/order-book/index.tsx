@@ -2,11 +2,12 @@ import React from "react";
 
 import colors from "../../constants/colors";
 
-import WebSocketConnection from "../../websocket";
 import OrderBookHeader from "../header";
-import SpreadRow from "../spread";
 import OrderChart from "../ask-chart";
 import OrderBidChart from "../bid-chart";
+import SpreadRow from "../spread";
+import ToggleProductButton from "../toggle-product-button";
+import WebSocketConnection from "../../websocket";
 
 import { ScrollView, StyleSheet, Text, SafeAreaView } from "react-native";
 import { useSelector } from "react-redux";
@@ -38,6 +39,10 @@ const OrderBook = (props: OrderBookProps): React.ReactElement => {
   const spreadPercentage = calculateSpreadPercentage(currAskArr, currBidArr);
   const maxTotalSum = calculateMaxTotalSum(currAskArr, currBidArr);
 
+  const onToggleProductId = () => {
+    props.websocket.onToggleProductId();
+  };
+
   return (
     <ScrollView style={styles.container}>
       <SafeAreaView>
@@ -45,6 +50,7 @@ const OrderBook = (props: OrderBookProps): React.ReactElement => {
         <OrderChart data={currAskArr} maxTotalSum={maxTotalSum} />
         <SpreadRow units={spreadUnits} percentage={spreadPercentage} />
         <OrderBidChart data={currBidArr} maxTotalSum={maxTotalSum} />
+        <ToggleProductButton onToggle={onToggleProductId} />
       </SafeAreaView>
     </ScrollView>
   );
