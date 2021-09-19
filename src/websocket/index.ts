@@ -1,8 +1,11 @@
+import products from "../constants/products";
+
 import {
   receiveMessage,
   unsubscribeFromProductId,
 } from "../redux/actions/orders";
 import { store } from "../redux/store";
+import { toggleProductId } from "../helpers";
 
 class WebSocketConnection {
   ws: WebSocket;
@@ -10,7 +13,7 @@ class WebSocketConnection {
 
   constructor() {
     this.ws = new WebSocket("wss://www.cryptofacilities.com/ws/v1");
-    this.currentProductId = "PI_XBTUSD";
+    this.currentProductId = products.bitcoin;
     this.configureConnection();
   }
 
@@ -44,11 +47,7 @@ class WebSocketConnection {
 
   onToggleProductId = () => {
     this.unsubscribeFromProductId();
-    if (this.currentProductId === "PI_XBTUSD") {
-      this.currentProductId = "PI_ETHUSD";
-    } else {
-      this.currentProductId = "PI_XBTUSD";
-    }
+    this.currentProductId = toggleProductId(this.currentProductId);
     this.subscribeToProductId();
   };
 }

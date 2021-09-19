@@ -1,3 +1,4 @@
+import products from "../constants/products";
 import { sumBy } from "lodash";
 
 export function calculateSpreadInUnits(
@@ -35,4 +36,12 @@ export function calculateMaxTotalSum(
   });
 
   return Math.max(totalAskSum, totalBidSum);
+}
+
+export function toggleProductId(productId: string): string {
+  if (productId === products.bitcoin) {
+    return products.ethereum;
+  } else {
+    return products.bitcoin;
+  }
 }
