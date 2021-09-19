@@ -1,4 +1,4 @@
-const initialState: any = {
+const initialState = {
   orders: {
     productIdToOrderBook: {
       PI_XBTUSD: {

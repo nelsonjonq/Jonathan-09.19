@@ -1,6 +1,6 @@
 import React from "react";
 
-import colors from "../../constants/colors";
+import colors from "../../../constants/colors";
 import OrderRow from "../order-row";
 
 import { StyleSheet, View } from "react-native";

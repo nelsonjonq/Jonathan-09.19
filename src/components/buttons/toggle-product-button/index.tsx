@@ -1,7 +1,7 @@
 import React from "react";
 
-import colors from "../../constants/colors";
-import strings from "../../constants/strings";
+import colors from "../../../constants/colors";
+import strings from "../../../constants/strings";
 
 import { Pressable, Text, StyleSheet, View } from "react-native";
 

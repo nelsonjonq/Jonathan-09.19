@@ -3,10 +3,10 @@ import React from "react";
 import colors from "../../constants/colors";
 
 import OrderBookHeader from "../header";
-import OrderChart from "../ask-chart";
-import OrderBidChart from "../bid-chart";
+import OrderChart from "../charts/ask-chart";
+import OrderBidChart from "../charts/bid-chart";
 import SpreadRow from "../spread";
-import ToggleProductButton from "../toggle-product-button";
+import ToggleProductButton from "../buttons/toggle-product-button";
 import WebSocketConnection from "../../websocket";
 
 import { ScrollView, StyleSheet, Text, SafeAreaView } from "react-native";
