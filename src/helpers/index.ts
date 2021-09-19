@@ -24,16 +24,18 @@ export function calculateSpreadPercentage(
   return (spreadInUnits / askArr[askArr.length - 1][0]) * 100;
 }
 
+export function calculateTotalSumOfOrderArr(orderArr: number[][]): number {
+  return sumBy(orderArr, function (order: number[]) {
+    return order[1];
+  });
+}
+
 export function calculateMaxTotalSum(
   askArr: number[][],
   bidArr: number[][],
 ): number {
-  const totalAskSum = sumBy(askArr, function (order: number[]) {
-    return order[1];
-  });
-  const totalBidSum = sumBy(bidArr, function (order: number[]) {
-    return order[1];
-  });
+  const totalAskSum = calculateTotalSumOfOrderArr(askArr);
+  const totalBidSum = calculateTotalSumOfOrderArr(bidArr);
 
   return Math.max(totalAskSum, totalBidSum);
 }

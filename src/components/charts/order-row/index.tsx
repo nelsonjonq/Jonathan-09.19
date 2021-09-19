@@ -39,7 +39,8 @@ const OrderRow = (props: OrderRowProps): React.ReactElement => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    padding: 3,
+    paddingTop: 3,
+    paddingBottom: 3,
   },
   rowColorContainer: {
     position: "absolute",

@@ -15,17 +15,21 @@ const OrderBidChart = (props: OrderBidChartProps): React.ReactElement => {
   return (
     <View>
       {props.data.map((order: number[]) => {
-        currTotal += order[1];
-        const priceText = order[0].toLocaleString("en-US", {
+        const orderPrice = order[0];
+        const orderTotal = order[1];
+
+        currTotal += orderTotal;
+
+        const totalPercentage = (currTotal / props.maxTotalSum) * 100;
+        const priceText = orderPrice.toLocaleString("en-US", {
           minimumFractionDigits: 1,
         });
 
-        const totalPercentage = (currTotal / props.maxTotalSum) * 100;
         return (
           <OrderRow
-            key={order[0]}
+            key={orderPrice}
             priceText={priceText}
-            sizeText={order[1].toLocaleString()}
+            sizeText={orderTotal.toLocaleString()}
             totalText={currTotal.toLocaleString()}
             totalPercentage={totalPercentage}
             priceTextColor={colors.purchaseText}

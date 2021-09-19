@@ -19,8 +19,8 @@ import {
   calculateMaxTotalSum,
 } from "../../helpers";
 import {
-  getAskOrderArray,
-  getBidOrderArray,
+  getCachedAskOrderArray,
+  getCachedBidOrderArray,
 } from "../../redux/selectors/order";
 
 interface OrderBookProps {
@@ -30,10 +30,10 @@ interface OrderBookProps {
 
 const OrderBook = (props: OrderBookProps): React.ReactElement => {
   const currAskArr = useSelector((state) => {
-    return getAskOrderArray(state, props.websocket.currentProductId);
+    return getCachedAskOrderArray(state, props.websocket.currentProductId);
   });
   const currBidArr = useSelector((state) => {
-    return getBidOrderArray(state, props.websocket.currentProductId);
+    return getCachedBidOrderArray(state, props.websocket.currentProductId);
   });
 
   const spreadUnits = calculateSpreadInUnits(currAskArr, currBidArr);
