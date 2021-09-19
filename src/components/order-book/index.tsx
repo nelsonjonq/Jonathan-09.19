@@ -1,7 +1,9 @@
 import React from "react";
 
 import colors from "../../constants/colors";
+import strings from "../../constants/strings";
 
+import ErrorMessage from "../error-message";
 import OrderBookHeader from "../header";
 import OrderChart from "../charts/ask-chart";
 import OrderBidChart from "../charts/bid-chart";
@@ -18,6 +20,7 @@ import {
 } from "../../helpers";
 
 interface OrderBookProps {
+  connected: boolean;
   websocket: WebSocketConnection;
 }
 
@@ -47,10 +50,18 @@ const OrderBook = (props: OrderBookProps): React.ReactElement => {
     <ScrollView style={styles.container}>
       <SafeAreaView>
         <OrderBookHeader />
-        <OrderChart data={currAskArr} maxTotalSum={maxTotalSum} />
-        <SpreadRow units={spreadUnits} percentage={spreadPercentage} />
-        <OrderBidChart data={currBidArr} maxTotalSum={maxTotalSum} />
-        <ToggleProductButton onToggle={onToggleProductId} />
+        <ErrorMessage
+          display={!props.connected}
+          text={strings.disconnectedError}
+        />
+        {props.connected && (
+          <>
+            <OrderChart data={currAskArr} maxTotalSum={maxTotalSum} />
+            <SpreadRow units={spreadUnits} percentage={spreadPercentage} />
+            <OrderBidChart data={currBidArr} maxTotalSum={maxTotalSum} />
+            <ToggleProductButton onToggle={onToggleProductId} />
+          </>
+        )}
       </SafeAreaView>
     </ScrollView>
   );
