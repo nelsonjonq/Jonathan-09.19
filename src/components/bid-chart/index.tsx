@@ -1,0 +1,44 @@
+import React from "react";
+
+import colors from "../../constants/colors";
+import OrderRow from "../order-row";
+
+import { StyleSheet, View } from "react-native";
+
+interface OrderBidChartProps {
+  data: any;
+  maxTotalSum: number;
+}
+
+const OrderBidChart = (props: OrderBidChartProps): React.ReactElement => {
+  let currTotal = 0;
+  return (
+    <View style={styles.orderChartContainer}>
+      {props.data.map((order: any) => {
+        currTotal += order[1];
+        const priceText = order[0].toLocaleString("en-US", {
+          minimumFractionDigits: 1,
+        });
+
+        const totalPercentage = (currTotal / props.maxTotalSum) * 100;
+        return (
+          <OrderRow
+            key={order[0]}
+            priceText={priceText}
+            sizeText={order[1].toLocaleString()}
+            totalText={currTotal.toLocaleString()}
+            totalPercentage={totalPercentage}
+            priceTextColor={colors.purchaseText}
+            backgroundColor={colors.purchaseBackground}
+          />
+        );
+      })}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  orderChartContainer: {},
+});
+
+export default OrderBidChart;

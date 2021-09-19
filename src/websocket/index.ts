@@ -12,11 +12,15 @@ class WebSocketConnection {
   }
 
   configureConnection = () => {
-    this.ws.onopen = this.onOpenWebsocket;
+    this.ws.onopen = this.subscribeToProductId;
     this.ws.onmessage = this.onMessageReceived;
   };
 
-  onOpenWebsocket = () => {
+  onMessageReceived = (event: any) => {
+    store.dispatch(receiveMessage(event));
+  };
+
+  subscribeToProductId = () => {
     const initialMessage = {
       event: "subscribe",
       feed: "book_ui_1",
@@ -25,8 +29,19 @@ class WebSocketConnection {
     this.ws.send(JSON.stringify(initialMessage));
   };
 
-  onMessageReceived = (event: any) => {
-    store.dispatch(receiveMessage(event));
+  unsubscribeFromProductId = () => {
+    const message = {
+      event: "unsubscribe",
+      feed: "book_ui_1",
+      product_ids: [this.currentProductId],
+    };
+    this.ws.send(JSON.stringify(message));
+  };
+
+  onUpdateProductId = (productId: string) => {
+    this.unsubscribeFromProductId();
+    this.currentProductId = productId;
+    this.subscribeToProductId();
   };
 }
 

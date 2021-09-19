@@ -2,17 +2,19 @@ import React from "react";
 
 import colors from "../../constants/colors";
 
-import WebSocketConnection from "../../services/websocket";
+import WebSocketConnection from "../../websocket";
 import OrderBookHeader from "../header";
 import SpreadRow from "../spread";
-import OrderChart from "../chart";
+import OrderChart from "../ask-chart";
+import OrderBidChart from "../bid-chart";
 
 import { ScrollView, StyleSheet, Text, SafeAreaView } from "react-native";
 import { useSelector } from "react-redux";
 import {
   calculateSpreadInUnits,
   calculateSpreadPercentage,
-} from "../../helpers/spread-helper";
+  calculateMaxTotalSum,
+} from "../../helpers";
 
 interface OrderBookProps {
   websocket: WebSocketConnection;
@@ -34,14 +36,15 @@ const OrderBook = (props: OrderBookProps): React.ReactElement => {
 
   const spreadUnits = calculateSpreadInUnits(currAskArr, currBidArr);
   const spreadPercentage = calculateSpreadPercentage(currAskArr, currBidArr);
+  const maxTotalSum = calculateMaxTotalSum(currAskArr, currBidArr);
 
   return (
     <ScrollView style={styles.container}>
       <SafeAreaView>
         <OrderBookHeader />
-        <OrderChart data={currAskArr} isBidding={false} />
+        <OrderChart data={currAskArr} maxTotalSum={maxTotalSum} />
         <SpreadRow units={spreadUnits} percentage={spreadPercentage} />
-        <OrderChart data={currBidArr} isBidding={true} />
+        <OrderBidChart data={currBidArr} maxTotalSum={maxTotalSum} />
       </SafeAreaView>
     </ScrollView>
   );
