@@ -14,7 +14,7 @@ const OrderBidChart = (props: OrderBidChartProps): React.ReactElement => {
   let currTotal = 0;
   return (
     <View style={styles.orderChartContainer}>
-      {props.data.map((order: any) => {
+      {props.data.map((order: number[]) => {
         currTotal += order[1];
         const priceText = order[0].toLocaleString("en-US", {
           minimumFractionDigits: 1,

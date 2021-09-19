@@ -18,33 +18,27 @@ import {
   calculateSpreadPercentage,
   calculateMaxTotalSum,
 } from "../../helpers";
+import {
+  getAskOrderArray,
+  getBidOrderArray,
+} from "../../redux/selectors/order";
 
 interface OrderBookProps {
   connected: boolean;
   websocket: WebSocketConnection;
 }
 
-const NUM_ROWS = 12;
-
 const OrderBook = (props: OrderBookProps): React.ReactElement => {
-  let currAskArr = useSelector((state: any) => {
-    const currentProductId = props.websocket.currentProductId;
-    return state.orders.productIdToOrderBook[currentProductId].asks;
+  const currAskArr = useSelector((state) => {
+    return getAskOrderArray(state, props.websocket.currentProductId);
   });
-  currAskArr = currAskArr?.slice(currAskArr.length - NUM_ROWS);
-
-  const currBidArr = useSelector((state: any) => {
-    const currentProductId = props.websocket.currentProductId;
-    return state.orders.productIdToOrderBook[currentProductId].bids;
-  })?.slice(0, NUM_ROWS);
+  const currBidArr = useSelector((state) => {
+    return getBidOrderArray(state, props.websocket.currentProductId);
+  });
 
   const spreadUnits = calculateSpreadInUnits(currAskArr, currBidArr);
   const spreadPercentage = calculateSpreadPercentage(currAskArr, currBidArr);
   const maxTotalSum = calculateMaxTotalSum(currAskArr, currBidArr);
-
-  const onToggleProductId = () => {
-    props.websocket.onToggleProductId();
-  };
 
   return (
     <ScrollView style={styles.container}>
@@ -59,7 +53,7 @@ const OrderBook = (props: OrderBookProps): React.ReactElement => {
             <OrderChart data={currAskArr} maxTotalSum={maxTotalSum} />
             <SpreadRow units={spreadUnits} percentage={spreadPercentage} />
             <OrderBidChart data={currBidArr} maxTotalSum={maxTotalSum} />
-            <ToggleProductButton onToggle={onToggleProductId} />
+            <ToggleProductButton onToggle={props.websocket.onToggleProductId} />
           </>
         )}
       </SafeAreaView>
@@ -71,9 +65,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
-  },
-  text: {
-    color: colors.primaryText,
   },
 });
 

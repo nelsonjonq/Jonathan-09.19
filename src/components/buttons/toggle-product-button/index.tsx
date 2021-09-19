@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 25,
+    margin: 25,
   },
   text: {
     color: colors.primaryText,

@@ -19,7 +19,7 @@ const OrderAskChart = (props: OrderChartProps): React.ReactElement => {
 
   return (
     <View style={styles.orderChartContainer}>
-      {props.data.map((order: any) => {
+      {props.data.map((order: number[]) => {
         const total = currTotal;
         currTotal -= order[1];
         const priceText = order[0].toLocaleString("en-US", {
