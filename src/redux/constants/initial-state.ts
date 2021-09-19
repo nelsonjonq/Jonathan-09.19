@@ -4,12 +4,10 @@ const initialState: any = {
       PI_XBTUSD: {
         asks: [],
         bids: [],
-        priceDetails: {},
       },
       PI_ETHUSD: {
         asks: [],
         bids: [],
-        priceDetails: {},
       },
     },
   },

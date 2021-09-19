@@ -22,7 +22,7 @@ class WebSocketConnection {
     this.ws.onmessage = this.onMessageReceived;
   };
 
-  onMessageReceived = (event: any) => {
+  onMessageReceived = (event: MessageEvent) => {
     store.dispatch(receiveMessage(event));
   };
 

@@ -3,7 +3,7 @@ import {
   UNSUBSCRIBE_FROM_PRODUCT_ID,
 } from "../constants/action-types";
 
-export function receiveMessage(message: any) {
+export function receiveMessage(message: MessageEvent) {
   return {
     type: RECEIVE_MESSAGE,
     payload: message,

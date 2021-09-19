@@ -17,7 +17,7 @@ const orderReducer = (state = initialState, action: any) => {
   }
 };
 
-const mergeSortedArrays = (arr: any, prevArr: any) => {
+const mergeSortedArrays = (arr: number[][], prevArr: number[][]) => {
   for (const order of arr) {
     const orderPrice = order[0];
 

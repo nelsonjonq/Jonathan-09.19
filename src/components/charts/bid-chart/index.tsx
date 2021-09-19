@@ -6,7 +6,7 @@ import OrderRow from "../order-row";
 import { StyleSheet, View } from "react-native";
 
 interface OrderBidChartProps {
-  data: any;
+  data: number[][];
   maxTotalSum: number;
 }
 
