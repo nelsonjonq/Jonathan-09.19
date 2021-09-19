@@ -12,8 +12,8 @@ const websocket = new WebSocketConnection();
 export default function App(): React.ReactElement {
   return (
     <Provider store={store}>
-      <OrderBook />
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
+      <OrderBook websocket={websocket} />
     </Provider>
   );
 }

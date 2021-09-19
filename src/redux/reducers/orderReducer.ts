@@ -12,11 +12,7 @@ const orderReducer = (state = initialState, action: any) => {
   }
 };
 
-const mergeSortedArrays = (
-  arr: any,
-  prevArr: any,
-  sortBy: boolean | "asc" | "desc",
-) => {
+const mergeSortedArrays = (arr: any, prevArr: any) => {
   for (const order of arr) {
     const orderPrice = order[0];
 
@@ -37,13 +33,13 @@ const mergeSortedArrays = (
     return o[1] == 0;
   });
 
-  // Sort in Ascending Order
+  // Sort in Descending Order
   prevArr = orderBy(
     prevArr,
     function (o: number[]) {
       return o[0];
     },
-    [sortBy],
+    ["desc"],
   );
 
   return prevArr;
@@ -68,8 +64,8 @@ const receiveMessage = (state: any, action: any) => {
     productIdToOrderBook: {
       ...state.productIdToOrderBook,
       [productId]: {
-        asks: mergeSortedArrays(asks, prevAsks, "asc"),
-        bids: mergeSortedArrays(bids, prevBids, "desc"),
+        asks: mergeSortedArrays(asks, prevAsks),
+        bids: mergeSortedArrays(bids, prevBids),
       },
     },
   };
