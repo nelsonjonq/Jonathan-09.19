@@ -91,15 +91,16 @@ describe("ToggleProductButton", () => {
   });
 
   it("should call the callback function on press", () => {
+    // Arrange
     const mockCallback = jest.fn(() => {});
     const component = enzyme.shallow(
       <ToggleProductButton onToggle={mockCallback} />,
     );
 
-    // Action
+    // Act
     component.find(Pressable).first().simulate("press");
 
-    //Assert
+    // Assert
     expect(mockCallback.mock.calls.length).toBe(1);
   });
 });
