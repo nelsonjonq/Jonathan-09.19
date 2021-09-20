@@ -1,0 +1,312 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorMessage should render correctly when display is false 1`] = `""`;
+
+exports[`ErrorMessage should render correctly when display is true 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#3D1E28",
+      "flexDirection": "row",
+      "padding": 10,
+      "paddingLeft": 15,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#FFFFFF",
+        "fontWeight": "bold",
+        "textAlign": "left",
+      }
+    }
+  >
+    Sample Error Message
+  </Text>
+</View>
+`;
+
+exports[`Header should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "borderBottomColor": "#3A404C",
+        "borderBottomWidth": 1,
+        "padding": 10,
+        "paddingLeft": 15,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Order Book
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#3A404C",
+          "borderBottomWidth": 1,
+          "padding": 10,
+          "paddingLeft": 15,
+        },
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-evenly",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#3A404C",
+          "fontWeight": "bold",
+        }
+      }
+    >
+      PRICE
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#3A404C",
+          "fontWeight": "bold",
+        }
+      }
+    >
+      SIZE
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#3A404C",
+          "fontWeight": "bold",
+        }
+      }
+    >
+      TOTAL
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`OrderAskChart should render correctly 1`] = `
+<View>
+  <OrderRow
+    backgroundColor="#3D1E28"
+    key="45000"
+    priceText="45,000.0"
+    priceTextColor="#CB292E"
+    sizeText="100"
+    totalPercentage={9.5}
+    totalText="950"
+  />
+  <OrderRow
+    backgroundColor="#3D1E28"
+    key="44950"
+    priceText="44,950.0"
+    priceTextColor="#CB292E"
+    sizeText="200"
+    totalPercentage={8.5}
+    totalText="850"
+  />
+  <OrderRow
+    backgroundColor="#3D1E28"
+    key="44900"
+    priceText="44,900.0"
+    priceTextColor="#CB292E"
+    sizeText="650"
+    totalPercentage={6.5}
+    totalText="650"
+  />
+</View>
+`;
+
+exports[`OrderBidChart should render correctly 1`] = `
+<View>
+  <OrderRow
+    backgroundColor="#123534"
+    key="45000"
+    priceText="45,000.0"
+    priceTextColor="#129269"
+    sizeText="100"
+    totalPercentage={1}
+    totalText="100"
+  />
+  <OrderRow
+    backgroundColor="#123534"
+    key="44950"
+    priceText="44,950.0"
+    priceTextColor="#129269"
+    sizeText="200"
+    totalPercentage={3}
+    totalText="300"
+  />
+  <OrderRow
+    backgroundColor="#123534"
+    key="44900"
+    priceText="44,900.0"
+    priceTextColor="#129269"
+    sizeText="650"
+    totalPercentage={9.5}
+    totalText="950"
+  />
+</View>
+`;
+
+exports[`OrderRow should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "paddingBottom": 3,
+      "paddingTop": 3,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 24,
+          "position": "absolute",
+        },
+        Object {
+          "backgroundColor": "#123534",
+          "width": "1%",
+        },
+      ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-evenly",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "fontWeight": "bold",
+            "minWidth": 75,
+            "textAlign": "right",
+          },
+          Object {
+            "color": "#129269",
+          },
+        ]
+      }
+    >
+      45,000.0
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontWeight": "bold",
+          "minWidth": 75,
+          "textAlign": "right",
+        }
+      }
+    >
+      100
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontWeight": "bold",
+          "minWidth": 75,
+          "textAlign": "right",
+        }
+      }
+    >
+      100
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`SpreadRow should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "borderBottomColor": "#3A404C",
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "padding": 10,
+      "paddingLeft": 15,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#3A404C",
+        "fontWeight": "bold",
+      }
+    }
+  >
+    Spread 100.0 (10.00%)
+  </Text>
+</View>
+`;
+
+exports[`ToggleProductButton should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+      "margin": 25,
+    }
+  }
+>
+  <Pressable
+    onPress={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#5741D9",
+        "borderRadius": 3,
+        "height": 30,
+        "justifyContent": "center",
+        "width": 150,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontWeight": "bold",
+          "textAlign": "center",
+        }
+      }
+    >
+      Toggle Feed
+    </Text>
+  </Pressable>
+</View>
+`;
