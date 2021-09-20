@@ -12,6 +12,8 @@ Ethereum and Bitcoin live Order Books:
 
 ### Installation
 
+Be sure to have [Expo](https://docs.expo.dev/workflow/expo-cli/) setup locally.
+
 Use the package manager [yarn](https://yarnpkg.com/cli/install) to install the necessary
 dependencies.
 
@@ -19,7 +21,6 @@ dependencies.
 yarn install
 ```
 
-Also be sure to have [Expo](https://docs.expo.dev/workflow/expo-cli/) setup locally.
 
 ### Usage
 
