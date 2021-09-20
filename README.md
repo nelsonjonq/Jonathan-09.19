@@ -28,3 +28,9 @@ To begin running the app locally, please run the following command.
 ```bash
 yarn start
 ```
+
+To test the project locally, please run the following command.
+
+```bash
+yarn test
+```
