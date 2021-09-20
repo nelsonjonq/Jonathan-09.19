@@ -22,6 +22,7 @@ import {
   getCachedAskOrderArray,
   getCachedBidOrderArray,
 } from "../../redux/selectors/order";
+import configs from "../../constants/configs";
 
 interface OrderBookProps {
   connected: boolean;
@@ -30,10 +31,18 @@ interface OrderBookProps {
 
 const OrderBook = (props: OrderBookProps): React.ReactElement => {
   const currAskArr = useSelector((state) => {
-    return getCachedAskOrderArray(state, props.websocket.currentProductId);
+    return getCachedAskOrderArray(
+      state,
+      props.websocket.currentProductId,
+      configs.throttleMs,
+    );
   });
   const currBidArr = useSelector((state) => {
-    return getCachedBidOrderArray(state, props.websocket.currentProductId);
+    return getCachedBidOrderArray(
+      state,
+      props.websocket.currentProductId,
+      configs.throttleMs,
+    );
   });
 
   const spreadUnits = calculateSpreadInUnits(currAskArr, currBidArr);

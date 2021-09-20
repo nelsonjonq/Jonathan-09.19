@@ -9,7 +9,6 @@
 import configs from "../../constants/configs";
 
 const NUM_ROWS = configs.numRows;
-const THROTTLE_MS = configs.throttleMs;
 
 let cachedAskArr: number[][];
 let cachedBidArr: number[][];
@@ -21,9 +20,13 @@ function getTimestamp(): number {
   return date.getTime();
 }
 
-export function getCachedAskOrderArray(state: any, currentProductId: string) {
+export function getCachedAskOrderArray(
+  state: any,
+  currentProductId: string,
+  throttleTimeInMs: number,
+) {
   const timestamp = getTimestamp();
-  if (timestamp - askArrLastUpdate < THROTTLE_MS) {
+  if (timestamp - askArrLastUpdate < throttleTimeInMs) {
     return cachedAskArr;
   }
 
@@ -36,9 +39,13 @@ export function getCachedAskOrderArray(state: any, currentProductId: string) {
   return slicedAskOrderArr;
 }
 
-export function getCachedBidOrderArray(state: any, currentProductId: string) {
+export function getCachedBidOrderArray(
+  state: any,
+  currentProductId: string,
+  throttleTimeInMs: number,
+) {
   const timestamp = getTimestamp();
-  if (timestamp - bidArrLastUpdate < THROTTLE_MS) {
+  if (timestamp - bidArrLastUpdate < throttleTimeInMs) {
     return cachedBidArr;
   }
 
